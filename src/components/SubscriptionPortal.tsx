@@ -81,9 +81,9 @@ const SubscriptionPortal = () => {
         <Button
           type="submit"
           variant="divine"
-          className="w-full font-mystical text-xl py-4 cosmic-pulse"
+          className="w-full font-mystical text-lg py-4 cosmic-pulse min-h-[3.5rem] px-4"
         >
-          Begin Your Cosmic Journey - $5/month ✨
+          <span className="text-center leading-tight">Begin Your Cosmic Journey<br />$5/month ✨</span>
         </Button>
 
         <div className="text-center">
