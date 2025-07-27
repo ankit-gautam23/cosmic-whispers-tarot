@@ -18,6 +18,11 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				'mystical': ['Cinzel', 'serif'],
+				'ethereal': ['Cormorant Garamond', 'serif'],
+				'divine': ['Great Vibes', 'cursive'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -62,6 +67,17 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				}
+			},
+			backgroundImage: {
+				'gradient-cosmic': 'var(--gradient-cosmic)',
+				'gradient-divine': 'var(--gradient-divine)',
+				'gradient-ethereal': 'var(--gradient-ethereal)',
+				'gradient-moonlight': 'var(--gradient-moonlight)',
+			},
+			boxShadow: {
+				'cosmic': 'var(--shadow-cosmic)',
+				'divine': 'var(--shadow-divine)',
+				'mystical': 'var(--shadow-mystical)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
