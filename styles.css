@@ -1,0 +1,705 @@
+/* Cosmic Design System */
+:root {
+  /* Colors - Cosmic Palette */
+  --cosmic-purple: hsl(285, 85%, 35%);
+  --cosmic-purple-light: hsl(285, 85%, 55%);
+  --cosmic-gold: hsl(45, 93%, 58%);
+  --cosmic-gold-light: hsl(45, 93%, 70%);
+  --moonlight-white: hsl(240, 20%, 99%);
+  --nebula-blue: hsl(240, 82%, 25%);
+  --nebula-blue-light: hsl(240, 82%, 45%);
+  --cosmic-dark: hsl(240, 15%, 8%);
+  --cosmic-dark-light: hsl(240, 15%, 15%);
+
+  /* Gradients */
+  --gradient-cosmic: linear-gradient(135deg, var(--cosmic-purple), var(--nebula-blue));
+  --gradient-divine: linear-gradient(135deg, var(--cosmic-gold), var(--cosmic-gold-light));
+  --gradient-ethereal: linear-gradient(135deg, var(--cosmic-purple), var(--cosmic-purple-light));
+  --gradient-moonlight: linear-gradient(135deg, var(--moonlight-white), hsl(240, 20%, 95%));
+
+  /* Shadows */
+  --shadow-cosmic: 0 10px 30px -10px hsla(285, 85%, 35%, 0.3);
+  --shadow-divine: 0 10px 30px -10px hsla(45, 93%, 58%, 0.4);
+  --shadow-ethereal: 0 5px 20px -5px hsla(285, 85%, 35%, 0.2);
+
+  /* Transitions */
+  --transition-mystical: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-divine: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  /* Border Radius */
+  --radius: 12px;
+  --radius-large: 20px;
+}
+
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Cormorant Garamond', serif;
+  background: var(--cosmic-dark);
+  color: var(--moonlight-white);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* Typography */
+.font-divine {
+  font-family: 'Great Vibes', cursive;
+}
+
+.font-mystical {
+  font-family: 'Cinzel', serif;
+}
+
+.font-ethereal {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+/* Utility Classes */
+.hidden {
+  display: none !important;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.section {
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  font-family: 'Cinzel', serif;
+  font-size: 2rem;
+  color: var(--cosmic-purple-light);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.button-center {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+/* Background */
+.cosmic-bg {
+  min-height: 100vh;
+  background: 
+    radial-gradient(circle at 20% 50%, hsla(285, 85%, 35%, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, hsla(240, 82%, 25%, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, hsla(45, 93%, 58%, 0.2) 0%, transparent 50%),
+    linear-gradient(135deg, var(--cosmic-dark) 0%, hsl(240, 15%, 12%) 100%);
+  background-attachment: fixed;
+  position: relative;
+}
+
+.bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.main-content {
+  position: relative;
+  z-index: 10;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.cosmic-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(3rem, 8vw, 6rem);
+  background: var(--gradient-divine);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+  animation: float 6s ease-in-out infinite;
+}
+
+.cosmic-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  color: hsla(240, 20%, 99%, 0.8);
+}
+
+/* Float Animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Buttons */
+.btn-divine {
+  background: var(--gradient-divine);
+  color: var(--cosmic-dark);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  font-family: 'Cinzel', serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition-mystical);
+  box-shadow: var(--shadow-divine);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+}
+
+.btn-divine:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: var(--shadow-divine), 0 0 40px hsla(45, 93%, 58%, 0.4);
+}
+
+.btn-divine:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.subscription-btn {
+  width: 100%;
+  min-height: 3.5rem;
+  padding: 1rem;
+}
+
+.btn-text {
+  text-align: center;
+  line-height: 1.2;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--cosmic-purple-light);
+  border: 1px solid hsla(285, 85%, 55%, 0.5);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  font-family: 'Cinzel', serif;
+  cursor: pointer;
+  transition: var(--transition-mystical);
+}
+
+.btn-outline:hover {
+  background: hsla(285, 85%, 55%, 0.2);
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.modal-content {
+  background: var(--gradient-cosmic);
+  border: 1px solid hsla(285, 85%, 55%, 0.3);
+  border-radius: var(--radius-large);
+  padding: 2rem;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: var(--shadow-cosmic);
+  animation: scale-in 0.3s ease-out;
+}
+
+@keyframes scale-in {
+  0% { transform: scale(0.9); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.modal-header h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.5rem;
+  color: var(--cosmic-gold);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.modal-header p {
+  text-align: center;
+  color: hsla(240, 20%, 99%, 0.8);
+  margin-bottom: 2rem;
+}
+
+.intentions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.intention-btn {
+  background: hsla(240, 20%, 99%, 0.1);
+  border: 1px solid hsla(285, 85%, 55%, 0.3);
+  border-radius: var(--radius);
+  padding: 1rem;
+  cursor: pointer;
+  transition: var(--transition-mystical);
+  text-align: center;
+  color: var(--moonlight-white);
+}
+
+.intention-btn:hover,
+.intention-btn.selected {
+  background: hsla(285, 85%, 55%, 0.3);
+  border-color: var(--cosmic-gold);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-ethereal);
+}
+
+.intention-icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.intention-name {
+  font-family: 'Cinzel', serif;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.intention-desc {
+  font-size: 0.9rem;
+  color: hsla(240, 20%, 99%, 0.7);
+  display: block;
+}
+
+/* Tarot Cards */
+.daily-card-container {
+  max-width: 300px;
+  margin: 0 auto 2rem;
+}
+
+.tarot-card {
+  perspective: 1000px;
+  cursor: pointer;
+  width: 100%;
+  aspect-ratio: 2/3;
+  transition: transform 0.1s ease;
+  will-change: transform;
+}
+
+.tarot-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.tarot-card.flipped .tarot-card-inner {
+  transform: rotateY(180deg);
+}
+
+.tarot-card-front,
+.tarot-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: var(--radius);
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.tarot-card-back {
+  transform: rotateY(180deg);
+}
+
+.card-back-design {
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-cosmic);
+  border: 1px solid hsla(285, 85%, 55%, 0.3);
+  border-radius: var(--radius);
+  overflow: hidden;
+  position: relative;
+  box-shadow: var(--shadow-cosmic);
+}
+
+.card-back-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0,0,0,0.3), rgba(0,0,0,0.6));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-back-content {
+  text-align: center;
+}
+
+.cosmic-symbol {
+  font-size: 2rem;
+  color: var(--cosmic-gold);
+  margin-bottom: 0.5rem;
+  animation: cosmic-pulse 3s ease-in-out infinite;
+}
+
+.cosmic-text {
+  font-family: 'Cinzel', serif;
+  color: hsla(285, 85%, 55%, 0.8);
+  font-size: 0.9rem;
+}
+
+.tarot-card-back {
+  background: var(--gradient-ethereal);
+  border: 1px solid hsla(285, 85%, 55%, 0.5);
+  box-shadow: var(--shadow-divine);
+}
+
+.card-revealed-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.moon-symbol {
+  font-size: 2.5rem;
+  color: var(--cosmic-gold);
+  margin-bottom: 1rem;
+  animation: cosmic-pulse 3s ease-in-out infinite;
+}
+
+.divine-title {
+  font-family: 'Cinzel', serif;
+  color: var(--cosmic-gold);
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.divine-message {
+  font-family: 'Cormorant Garamond', serif;
+  color: hsla(240, 20%, 99%, 0.9);
+  font-size: 1rem;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.sparkle {
+  color: hsla(285, 85%, 55%, 0.7);
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+/* Cosmic Pulse Animation */
+@keyframes cosmic-pulse {
+  0%, 100% { 
+    box-shadow: 0 0 20px hsla(285, 85%, 35%, 0.4);
+    transform: scale(1) translateZ(0);
+  }
+  50% { 
+    box-shadow: 0 0 40px hsla(285, 85%, 35%, 0.6);
+    transform: scale(1.02) translateZ(0);
+  }
+}
+
+/* Tarot Grid */
+.tarot-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.tarot-grid .tarot-card {
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+/* Affirmation Card */
+.affirmation-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.affirmation-card {
+  background: var(--gradient-ethereal);
+  border: 1px solid hsla(285, 85%, 55%, 0.3);
+  border-radius: var(--radius-large);
+  padding: 2rem;
+  box-shadow: var(--shadow-cosmic);
+  animation: float 8s ease-in-out infinite;
+}
+
+.affirmation-content {
+  text-align: center;
+}
+
+.affirmation-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  animation: cosmic-pulse 3s ease-in-out infinite;
+}
+
+.affirmation-category {
+  font-family: 'Cinzel', serif;
+  color: var(--cosmic-gold);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.affirmation-text {
+  font-family: 'Cormorant Garamond', serif;
+  color: hsla(240, 20%, 99%, 0.9);
+  font-size: 1.2rem;
+  line-height: 1.6;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+
+.affirmation-sparkles {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.affirmation-sparkles span {
+  color: var(--cosmic-gold);
+  font-size: 1.2rem;
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+.affirmation-sparkles span:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.affirmation-sparkles span:nth-child(3) {
+  animation-delay: 1s;
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Two Column Grid */
+.two-column-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+@media (max-width: 768px) {
+  .two-column-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Countdown Card */
+.countdown-card {
+  background: var(--gradient-ethereal);
+  border: 1px solid hsla(285, 85%, 55%, 0.3);
+  border-radius: var(--radius-large);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-cosmic);
+}
+
+.countdown-content {
+  text-align: center;
+}
+
+.countdown-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  animation: cosmic-pulse 3s ease-in-out infinite;
+}
+
+.countdown-title {
+  font-family: 'Cinzel', serif;
+  color: var(--cosmic-gold);
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.next-time {
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.5rem;
+  color: var(--cosmic-gold);
+  margin-bottom: 0.5rem;
+}
+
+.time-remaining {
+  font-family: 'Courier New', monospace;
+  color: var(--moonlight-white);
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+}
+
+.countdown-desc {
+  font-family: 'Cormorant Garamond', serif;
+  color: hsla(240, 20%, 99%, 0.7);
+  font-size: 0.9rem;
+}
+
+/* Subscription Card */
+.subscription-card {
+  background: var(--gradient-cosmic);
+  border: 1px solid hsla(285, 85%, 55%, 0.3);
+  border-radius: var(--radius-large);
+  padding: 2rem;
+  box-shadow: var(--shadow-cosmic);
+}
+
+.subscription-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.subscription-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.subscription-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2rem;
+  color: var(--cosmic-gold);
+  margin-bottom: 1rem;
+}
+
+.subscription-price {
+  font-family: 'Cormorant Garamond', serif;
+  color: hsla(240, 20%, 99%, 0.8);
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.subscription-benefits {
+  background: hsla(285, 85%, 55%, 0.2);
+  border-radius: var(--radius);
+  padding: 1rem;
+}
+
+.benefits-main {
+  font-family: 'Cinzel', serif;
+  color: var(--cosmic-gold);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.benefits-sub {
+  font-family: 'Cormorant Garamond', serif;
+  color: hsla(240, 20%, 99%, 0.8);
+  font-size: 0.9rem;
+}
+
+/* Form Styles */
+.subscription-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  font-family: 'Cinzel', serif;
+  color: var(--cosmic-gold);
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.form-input,
+.form-select {
+  background: hsla(240, 20%, 99%, 0.1);
+  border: 1px solid hsla(285, 85%, 55%, 0.3);
+  border-radius: var(--radius);
+  padding: 0.75rem;
+  color: var(--moonlight-white);
+  font-family: 'Cormorant Garamond', serif;
+  transition: var(--transition-mystical);
+}
+
+.form-input:focus,
+.form-select:focus {
+  outline: none;
+  border-color: var(--cosmic-gold);
+  box-shadow: 0 0 0 2px hsla(45, 93%, 58%, 0.2);
+}
+
+.form-input::placeholder {
+  color: hsla(240, 20%, 99%, 0.5);
+}
+
+.subscription-footer {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.subscription-footer p {
+  font-family: 'Cormorant Garamond', serif;
+  color: hsla(240, 20%, 99%, 0.6);
+  font-size: 0.8rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+  }
+  
+  .intentions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .tarot-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .modal-content {
+    padding: 1.5rem;
+  }
+  
+  .subscription-card {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tarot-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+  
+  .intentions-grid {
+    grid-template-columns: 1fr;
+  }
+}

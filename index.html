@@ -1,29 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cosmic Tarot • Manifestation Dashboard</title>
-    <meta name="description" content="Connect with the universe through mystical tarot readings and powerful manifestations" />
+    <meta name="description" content="Connect with the universe through mystical tarot readings and powerful manifestations">
     
     <!-- Spiritual Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
-    <meta name="author" content="Lovable" />
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Intention Setter Modal -->
+    <div id="intentionModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>🌙 Sacred Intention Setting</h2>
+                <p>Choose your heart's deepest calling. The universe is listening.</p>
+            </div>
+            <div class="intentions-grid">
+                <button class="intention-btn" data-intention="Love">
+                    <span class="intention-icon">💖</span>
+                    <span class="intention-name">Love</span>
+                    <span class="intention-desc">Attract deep connections</span>
+                </button>
+                <button class="intention-btn" data-intention="Wealth">
+                    <span class="intention-icon">💰</span>
+                    <span class="intention-name">Wealth</span>
+                    <span class="intention-desc">Manifest abundance</span>
+                </button>
+                <button class="intention-btn" data-intention="Career">
+                    <span class="intention-icon">🌟</span>
+                    <span class="intention-name">Career</span>
+                    <span class="intention-desc">Find your purpose</span>
+                </button>
+                <button class="intention-btn" data-intention="Health">
+                    <span class="intention-icon">🌿</span>
+                    <span class="intention-name">Health</span>
+                    <span class="intention-desc">Radiate vitality</span>
+                </button>
+                <button class="intention-btn" data-intention="Peace">
+                    <span class="intention-icon">☮️</span>
+                    <span class="intention-name">Peace</span>
+                    <span class="intention-desc">Embrace tranquility</span>
+                </button>
+                <button class="intention-btn" data-intention="Fame">
+                    <span class="intention-icon">👑</span>
+                    <span class="intention-name">Fame</span>
+                    <span class="intention-desc">Share your light</span>
+                </button>
+            </div>
+            <button id="setIntentionBtn" class="btn-divine" disabled>
+                Set Sacred Intention ✨
+            </button>
+        </div>
+    </div>
 
-    <meta property="og:title" content="fab318c0-e6eb-4615-bf65-459f1b96e9b2" />
-    <meta property="og:description" content="Lovable Generated Project" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <!-- Main Content -->
+    <div class="cosmic-bg">
+        <div class="bg-overlay"></div>
+        
+        <div class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <h1 class="cosmic-title">Cosmic Tarot</h1>
+                <p class="cosmic-subtitle">✨ Where the Universe Speaks Directly to Your Soul ✨</p>
+            </header>
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-  </head>
+            <div class="container">
+                <!-- Daily Card Section -->
+                <section class="section">
+                    <h2 class="section-title">Your Daily Cosmic Guidance</h2>
+                    <div class="daily-card-container">
+                        <div id="dailyCard" class="tarot-card">
+                            <div class="tarot-card-inner">
+                                <div class="tarot-card-front">
+                                    <div class="card-back-design">
+                                        <div class="card-back-overlay">
+                                            <div class="card-back-content">
+                                                <div class="cosmic-symbol">✨</div>
+                                                <p class="cosmic-text">Cosmic Guidance</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tarot-card-back">
+                                    <div class="card-revealed-content">
+                                        <div class="moon-symbol">🌙</div>
+                                        <h3 class="divine-title">Divine Message</h3>
+                                        <p id="dailyMessage" class="divine-message"></p>
+                                        <div class="sparkle">✨</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button-center">
+                        <button id="drawNewCardBtn" class="btn-divine">
+                            Draw New Guidance ✨
+                        </button>
+                    </div>
+                </section>
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+                <!-- Affirmation Section -->
+                <section id="affirmationSection" class="section hidden">
+                    <h2 class="section-title">Your Sacred Affirmations</h2>
+                    <div class="affirmation-container">
+                        <div id="affirmationCard" class="affirmation-card">
+                            <div class="affirmation-content">
+                                <div id="affirmationIcon" class="affirmation-icon">💖</div>
+                                <h3 id="affirmationCategory" class="affirmation-category">Love</h3>
+                                <p id="affirmationText" class="affirmation-text"></p>
+                                <div class="affirmation-sparkles">
+                                    <span>✨</span>
+                                    <span>🌟</span>
+                                    <span>✨</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Tarot Grid -->
+                <section class="section">
+                    <h2 class="section-title">The Mystic Deck Awaits</h2>
+                    <div id="tarotGrid" class="tarot-grid">
+                        <!-- Cards will be generated by JavaScript -->
+                    </div>
+                </section>
+
+                <!-- Countdown and Subscription -->
+                <div class="two-column-grid">
+                    <!-- Countdown Clock -->
+                    <div class="countdown-card">
+                        <div class="countdown-content">
+                            <div class="countdown-icon">⏰</div>
+                            <h3 class="countdown-title">Next Cosmic Alignment</h3>
+                            <div id="nextTime" class="next-time">11:11 AM</div>
+                            <div id="timeRemaining" class="time-remaining">00:00:00</div>
+                            <p class="countdown-desc">Your next divine affirmation arrives with perfect cosmic timing</p>
+                        </div>
+                    </div>
+
+                    <!-- Subscription Portal -->
+                    <div class="subscription-card">
+                        <div class="subscription-content">
+                            <div class="subscription-header">
+                                <div class="subscription-icon">🌙</div>
+                                <h2 class="subscription-title">Unlock Weekly Rituals & Daily Divine Guidance</h2>
+                                <p class="subscription-price">Join our sacred circle for $5/month</p>
+                                <div class="subscription-benefits">
+                                    <p class="benefits-main">✨ Daily Affirmations at 11:11 AM & 12:12 PM</p>
+                                    <p class="benefits-sub">Aligned with cosmic vibrations • Weekly manifestation rituals • Personalized tarot readings</p>
+                                </div>
+                            </div>
+
+                            <form id="subscriptionForm" class="subscription-form">
+                                <div class="form-group">
+                                    <label class="form-label">Sacred Name</label>
+                                    <input type="text" id="userName" class="form-input" placeholder="Enter your name" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Cosmic Email</label>
+                                    <input type="email" id="userEmail" class="form-input" placeholder="your.email@cosmic.com" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Primary Intention</label>
+                                    <select id="userIntention" class="form-select" required>
+                                        <option value="">Choose your heart's desire</option>
+                                        <option value="love">💖 Love & Relationships</option>
+                                        <option value="wealth">💰 Wealth & Abundance</option>
+                                        <option value="career">🌟 Career & Purpose</option>
+                                        <option value="health">🌿 Health & Vitality</option>
+                                        <option value="peace">☮️ Peace & Balance</option>
+                                        <option value="fame">👑 Recognition & Fame</option>
+                                    </select>
+                                </div>
+
+                                <button type="submit" class="btn-divine subscription-btn">
+                                    <span class="btn-text">Begin Your Cosmic Journey<br>$5/month ✨</span>
+                                </button>
+
+                                <div class="subscription-footer">
+                                    <p>🔮 Cancel anytime • Secure cosmic connection • Money-back guarantee</p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reset Intention Button -->
+                <div id="resetIntentionSection" class="button-center section hidden">
+                    <button id="resetIntentionBtn" class="btn-outline">
+                        🔮 Change Your Sacred Intention
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
 </html>
